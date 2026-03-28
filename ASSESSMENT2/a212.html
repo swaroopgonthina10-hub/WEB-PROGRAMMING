@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Portal</title>
+
+    <style>
+        body {
+            background-color: skyblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: navy;
+        }
+
+        /* Section Styling */
+        .section {
+            background-color: darkblue;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background-color: white;
+            color: darkblue;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: lightgray;
+        }
+    </style>
+
+    <script>
+        function showMessage() {
+            alert("Form Submitted Successfully");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Student Registration Portal</h1>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#personal">Personal Information</a>
+        <a href="#academic">Academic Details</a>
+        <a href="#address">Address Information</a>
+        <a href="#account">Account Credentials</a>
+    </nav>
+
+    <form onsubmit="showMessage()">
+
+        <!-- Section 1 -->
+        <div class="section" id="personal">
+            <h2>Personal Information</h2>
+
+            <label>Full Name:</label>
+            <input type="text" required>
+
+            <label>Date of Birth:</label>
+            <input type="date" required>
+
+            <label>Gender:</label>
+            <select required>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <label>Email Address:</label>
+            <input type="email" required>
+
+            <label>Mobile Number:</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section" id="academic">
+            <h2>Academic Details</h2>
+
+            <label>Register Number:</label>
+            <input type="text" required>
+
+            <label>Degree Program:</label>
+            <input type="text" required>
+
+            <label>Department:</label>
+            <input type="text" required>
+
+            <label>Year of Study:</label>
+            <input type="number" required>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section" id="address">
+            <h2>Address Information</h2>
+
+            <label>Door Number:</label>
+            <input type="text" required>
+
+            <label>Street Name:</label>
+            <input type="text" required>
+
+            <label>City:</label>
+            <input type="text" required>
+
+            <label>State:</label>
+            <input type="text" required>
+
+            <label>Pincode:</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section" id="account">
+            <h2>Account Credentials</h2>
+
+            <label>Username:</label>
+            <input type="text" required>
+
+            <label>Password:</label>
+            <input type="password" required>
+
+            <label>Confirm Password:</label>
+            <input type="password" required>
+
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+
+    <!-- Name and Register Number -->
+    <h3 style="text-align:center;">
+        Name: G. Swaroop <br>
+        Registration Number: 24BCT0035
+    </h3>
+
+</body>
+</html>
