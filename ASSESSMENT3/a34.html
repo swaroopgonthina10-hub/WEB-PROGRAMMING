@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Area Calculator</title>
+
+    <script>
+        function calculateArea() {
+
+            // Integer calculation
+            var lengthInt = 10;
+            var widthInt = 5;
+            var areaInt = lengthInt * widthInt;
+
+            // Floating-point calculation
+            var lengthFloat = 10.5;
+            var widthFloat = 5.2;
+            var areaFloat = lengthFloat * widthFloat;
+
+            // Display results using innerHTML
+            document.getElementById("result").innerHTML =
+                "Integer Area: " + areaInt + "<br>" +
+                "Float Area: " + areaFloat;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Rectangle Area Calculation</h2>
+
+    <button onclick="calculateArea()">Calculate Area</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

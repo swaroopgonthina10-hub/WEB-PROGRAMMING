@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World Button</title>
+
+    <script>
+        // Function declaration
+        function showMessage() {
+            // Variable declaration
+            var element = document.getElementById("output");
+
+            // Using innerHTML (outerHTML also works but replaces element)
+            element.innerHTML = "Hello, world!";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Click the button to display message</h2>
+
+    <!-- Button with onclick event -->
+    <button onclick="showMessage()">Click Me</button>
+
+    <!-- Output area -->
+    <p id="output"></p>
+
+    <hr>
+
+    <!-- Name and Registration Number -->
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>
