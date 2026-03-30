@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Numbers 1 to N</title>
+
+    <script>
+        function printNumbers() {
+            var n = parseInt(document.getElementById("num").value);
+            var i = 1;
+            var output = "";
+
+            // While loop
+            while (i <= n) {
+                output += i + " ";
+                i++;
+            }
+
+            // Display output
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Print Numbers from 1 to N</h2>
+
+    Enter N: <input type="text" id="num"><br><br>
+
+    <button onclick="printNumbers()">Print</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

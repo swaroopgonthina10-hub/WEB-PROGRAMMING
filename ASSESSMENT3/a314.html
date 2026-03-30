@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Styling Application</title>
+
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .smallcaps {
+            font-variant: small-caps;
+        }
+    </style>
+
+    <script>
+        function applyStyle(styleName) {
+            var text = document.getElementById("message");
+
+            // Apply selected class
+            text.className = styleName;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Text Styling Application</h2>
+
+    <fieldset>
+        <legend>Choose Style</legend>
+
+        <button onclick="applyStyle('bold')">Bold</button>
+        <button onclick="applyStyle('italic')">Italic</button>
+        <button onclick="applyStyle('smallcaps')">Small Caps</button>
+    </fieldset>
+
+    <p id="message">This is a sample message</p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

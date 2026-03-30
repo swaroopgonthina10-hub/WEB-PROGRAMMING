@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Overlapping Image Gallery</title>
+
+    <style>
+        .gallery {
+            position: relative;
+            height: 400px;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+
+        #img1 { top: 50px; left: 50px; }
+        #img2 { top: 100px; left: 120px; }
+        #img3 { top: 150px; left: 190px; }
+    </style>
+
+    <script>
+        // Global variable for z-index
+        var topIndex = 1;
+
+        function bringToFront(element) {
+            element.style.zIndex = ++topIndex;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Overlapping Image Gallery</h1>
+
+    <div class="gallery">
+        <!-- Working image URLs -->
+        <img id="img1" src="https://picsum.photos/id/1015/150/150" onclick="bringToFront(this)">
+        <img id="img2" src="https://picsum.photos/id/1016/150/150" onclick="bringToFront(this)">
+        <img id="img3" src="https://picsum.photos/id/1018/150/150" onclick="bringToFront(this)">
+    </div>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

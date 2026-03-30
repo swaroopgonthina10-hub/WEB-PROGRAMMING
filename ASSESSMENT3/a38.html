@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table (Do-While)</title>
+
+    <script>
+        function printTable() {
+            var num = parseInt(document.getElementById("num").value);
+            var i = 1;
+            var output = "";
+
+            // do-while loop
+            do {
+                output += num + " x " + i + " = " + (num * i) + "<br>";
+                i++;
+            } while (i <= 10);
+
+            // Display output
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Multiplication Table using Do-While Loop</h2>
+
+    Enter Number: <input type="text" id="num"><br><br>
+
+    <button onclick="printTable()">Generate Table</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

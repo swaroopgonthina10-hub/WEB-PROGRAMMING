@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Skills Validation</title>
+
+    <script>
+        function validateSkills() {
+            var skills = document.getElementsByName("skill");
+            var selected = [];
+
+            // Loop through checkboxes
+            for (var i = 0; i < skills.length; i++) {
+                if (skills[i].checked) {
+                    selected.push(skills[i].value);
+                }
+            }
+
+            // Validation: at least 3 skills
+            if (selected.length < 3) {
+                document.getElementById("result").innerHTML = "Please select at least 3 skills";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Selected Skills: " + selected.join(", ");
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Select Your Skills</h2>
+
+    <form onsubmit="validateSkills(); return false;">
+        <input type="checkbox" name="skill" value="HTML"> HTML<br>
+        <input type="checkbox" name="skill" value="CSS"> CSS<br>
+        <input type="checkbox" name="skill" value="JavaScript"> JavaScript<br>
+        <input type="checkbox" name="skill" value="Python"> Python<br>
+        <input type="checkbox" name="skill" value="Java"> Java<br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

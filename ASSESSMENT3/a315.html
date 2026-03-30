@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Font Customization Tool</title>
+
+    <script>
+        function applyStyles() {
+            var text = document.getElementById("message");
+            var fontSize = document.getElementById("fontSize").value;
+            var textColor = document.getElementById("textColor").value;
+            var bgColor = document.getElementById("bgColor").value;
+
+            text.style.fontSize = fontSize + "px";
+            text.style.color = textColor;
+            text.style.backgroundColor = bgColor;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Dynamic Font Customization Tool</h2>
+
+    <fieldset>
+        <legend>Customize Text Style</legend>
+
+        Font Size:
+        <input type="range" id="fontSize" min="10" max="50" value="20"><br><br>
+
+        Text Color:
+        <input type="color" id="textColor" value="#000000"><br><br>
+
+        Background Color:
+        <input type="color" id="bgColor" value="#ffff00"><br><br>
+
+        <button onclick="applyStyles()">Apply Style</button>
+    </fieldset>
+
+    <p id="message">This is a sample customizable text.</p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

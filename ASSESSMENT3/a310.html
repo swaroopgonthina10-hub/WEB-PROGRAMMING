@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkbox Selection Counter</title>
+
+    <script>
+        function countSelected() {
+            var subjects = document.getElementsByName("subject");
+            var selectedSubjects = [];
+            var count = 0;
+
+            // Loop through checkboxes
+            for (var i = 0; i < subjects.length; i++) {
+                if (subjects[i].checked) {
+                    selectedSubjects.push(subjects[i].value);
+                    count++;
+                }
+            }
+
+            // Display result
+            document.getElementById("result").innerHTML =
+                "Selected Count: " + count + "<br>" +
+                "Subjects: " + selectedSubjects.join(", ");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Select Subjects</h2>
+
+    <input type="checkbox" name="subject" value="Math"> Math<br>
+    <input type="checkbox" name="subject" value="Science"> Science<br>
+    <input type="checkbox" name="subject" value="English"> English<br>
+    <input type="checkbox" name="subject" value="Computer"> Computer<br><br>
+
+    <button onclick="countSelected()">Show Selection</button>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

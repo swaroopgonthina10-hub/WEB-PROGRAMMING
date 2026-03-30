@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Information System</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+
+    <script>
+        // Global array variable
+        var students = [];
+
+        // Constructor function for student object
+        function Student(name, regno, dept, marks) {
+            this.name = name;
+            this.regno = regno;
+            this.dept = dept;
+            this.marks = marks;
+
+            this.getGrade = function() {
+                if (this.marks >= 90) return "A";
+                else if (this.marks >= 75) return "B";
+                else if (this.marks >= 50) return "C";
+                else return "F";
+            };
+        }
+
+        function addStudent(form) {
+            var name = form.sname.value;
+            var regno = form.regno.value;
+            var dept = form.dept.value;
+            var marks = parseInt(form.marks.value);
+
+            var student = new Student(name, regno, dept, marks);
+            students.push(student);
+
+            displayStudents();
+
+            form.reset();
+            form.sname.focus();
+        }
+
+        function displayStudents() {
+            var output = "<table>";
+            output += "<tr><th>Name</th><th>Register No</th><th>Department</th><th>Marks</th><th>Grade</th></tr>";
+
+            for (var i = 0; i < students.length; i++) {
+                output += "<tr>";
+                output += "<td>" + students[i].name + "</td>";
+                output += "<td>" + students[i].regno + "</td>";
+                output += "<td>" + students[i].dept + "</td>";
+                output += "<td>" + students[i].marks + "</td>";
+                output += "<td>" + students[i].getGrade() + "</td>";
+                output += "</tr>";
+            }
+
+            output += "</table>";
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Student Information System</h2>
+
+    <form onsubmit="addStudent(this); return false;">
+        Student Name: <input type="text" name="sname" required><br><br>
+        Register No: <input type="text" name="regno" required><br><br>
+        Department:
+        <select name="dept">
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>MECH</option>
+        </select><br><br>
+        Marks: <input type="number" name="marks" required><br><br>
+
+        <input type="submit" value="Add Student">
+    </form>
+
+    <br>
+    <div id="result"></div>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>

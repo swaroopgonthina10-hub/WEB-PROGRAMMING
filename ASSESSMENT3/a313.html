@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Order Form</title>
+
+    <script>
+        function calculateTotal() {
+            var items = document.querySelectorAll("input[type='checkbox']");
+            var total = 0;
+
+            // for...of loop
+            for (var item of items) {
+                if (item.checked) {
+                    total += parseFloat(item.value);
+                }
+            }
+
+            document.getElementById("result").innerHTML = "Total Price: ₹" + total;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Product Order Form</h2>
+
+    <form>
+        <fieldset>
+            <legend>Electronics</legend>
+            <input type="checkbox" value="25000"> Mobile - ₹25000<br>
+            <input type="checkbox" value="40000"> Laptop - ₹40000<br>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>Accessories</legend>
+            <input type="checkbox" value="1000"> Mouse - ₹1000<br>
+            <input type="checkbox" value="2000"> Keyboard - ₹2000<br>
+        </fieldset>
+        <br>
+
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+    </form>
+
+    <p id="result"></p>
+
+    <hr>
+
+    <p><b>Name:</b> G. Swaroop</p>
+    <p><b>Registration Number:</b> 24BCT0035</p>
+
+</body>
+</html>
