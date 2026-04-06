@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Image Gallery</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #f1f1f1;
+      font-family: "Times New Roman", serif;
+    }
+
+    .container {
+      width: 100%;
+      text-align: center;
+      padding-top: 30px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .preview {
+      width: 650px;
+      height: 330px;
+      border: 2px solid #2b5d87;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .thumb {
+      width: 65px;
+      height: 45px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .thumb:hover {
+      transform: scale(1.05);
+      border: 2px solid #2b5d87;
+    }
+
+    .details {
+      position: fixed;
+      bottom: 0;
+      left: 5px;
+      font-size: 18px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+function Gallery() {
+  const images = [
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80"
+  ];
+
+  const [selectedImage, setSelectedImage] = React.useState(images[0]);
+
+  return (
+    <div className="container">
+      <h2>Image Gallery</h2>
+
+      <img
+        src={selectedImage}
+        className="preview"
+        alt="Preview"
+      />
+
+      <div className="gallery">
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            className="thumb"
+            alt={"Thumbnail " + (index + 1)}
+            onClick={() => setSelectedImage(img)}
+          />
+        ))}
+      </div>
+
+      <div className="details">
+        24BCT0035 Swaroop
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Gallery />);
+</script>
+
+</body>
+</html>
+

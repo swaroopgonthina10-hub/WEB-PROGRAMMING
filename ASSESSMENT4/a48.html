@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Explorer</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #eef2f3;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    input {
+      padding: 8px;
+      width: 60%;
+      margin-right: 5px;
+    }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 220px;
+      padding: 10px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 8px gray;
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .details {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const fetchCountries = async (name) => {
+  const res = await fetch(`https://restcountries.com/v3.1/name/${name}`);
+  const data = await res.json();
+
+  if (!Array.isArray(data)) return [];
+
+  return data.map(c => ({
+    name: c.name.common,
+    capital: c.capital ? c.capital[0] : "N/A",
+    population: c.population,
+    region: c.region,
+    flag: c.flags && c.flags.png ? c.flags.png : "https://via.placeholder.com/220x120?text=No+Flag"
+  }));
+};
+
+function Header() {
+  return <h1>Country Explorer</h1>;
+}
+
+function Search({ onSearch }) {
+  const [country, setCountry] = React.useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
+        placeholder="Search country..."
+      />
+      <button onClick={() => onSearch(country)}>Search</button>
+    </div>
+  );
+}
+
+function CountryCard({ country }) {
+  return (
+    <div className="card">
+      <img src={country.flag} alt={country.name} />
+      <h3>{country.name}</h3>
+      <p><b>Capital:</b> {country.capital}</p>
+      <p><b>Population:</b> {country.population}</p>
+      <p><b>Region:</b> {country.region}</p>
+    </div>
+  );
+}
+
+function CountryList({ countries }) {
+  if (countries.length === 0) {
+    return <p className="message">No countries found</p>;
+  }
+
+  return (
+    <div className="grid">
+      {countries.map((c, index) => (
+        <CountryCard key={index} country={c} />
+      ))}
+    </div>
+  );
+}
+
+function App() {
+  const [countries, setCountries] = React.useState([]);
+
+  const handleSearch = async (name) => {
+    const results = await fetchCountries(name);
+    setCountries(results);
+  };
+
+  return (
+    <div className="container">
+      <Header />
+      <Search onSearch={handleSearch} />
+      <CountryList countries={countries} />
+
+      <div className="details">
+        <p><b>Name:</b> Swaroop</p>
+        <p><b>Registration Number:</b> 24BCT0035</p>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React Grade Calculator</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial;
+    }
+
+    .container {
+      width: 320px;
+      margin: 80px auto;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    input {
+      margin: 8px;
+      padding: 8px;
+      width: 80%;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .details {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function GradeCalculator() {
+  const [m1, setM1] = React.useState("");
+  const [m2, setM2] = React.useState("");
+  const [m3, setM3] = React.useState("");
+  const [average, setAverage] = React.useState(0);
+  const [grade, setGrade] = React.useState("");
+
+  const calculateGrade = () => {
+    const avg = (Number(m1) + Number(m2) + Number(m3)) / 3;
+    setAverage(avg);
+
+    let g = "";
+    if (avg >= 90) g = "A+";
+    else if (avg >= 80) g = "A";
+    else if (avg >= 70) g = "B";
+    else if (avg >= 60) g = "C";
+    else if (avg >= 50) g = "D";
+    else g = "F";
+
+    setGrade(g);
+  };
+
+  return (
+    <div className="container">
+      <h2>Grade Calculator</h2>
+
+      <input
+        type="number"
+        value={m1}
+        onChange={(e) => setM1(e.target.value)}
+        placeholder="Enter Subject 1 Marks"
+      />
+
+      <input
+        type="number"
+        value={m2}
+        onChange={(e) => setM2(e.target.value)}
+        placeholder="Enter Subject 2 Marks"
+      />
+
+      <input
+        type="number"
+        value={m3}
+        onChange={(e) => setM3(e.target.value)}
+        placeholder="Enter Subject 3 Marks"
+      />
+
+      <button onClick={calculateGrade}>Calculate Grade</button>
+
+      <div className="result">
+        Average: {average.toFixed(2)} <br />
+        Grade: {grade}
+      </div>
+
+      <div className="details">
+        <p><b>Name:</b> Swaroop</p>
+        <p><b>Registration Number:</b> 24BCT0035</p>
+      </div>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<GradeCalculator />);
+
+</script>
+
+</body>
+</html>
+
